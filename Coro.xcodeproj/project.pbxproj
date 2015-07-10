@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		085321A01B4EE47B00854AC4 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0853219F1B4EE47B00854AC4 /* Spotify.framework */; };
+		085321A21B4EE4A200854AC4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 085321A11B4EE4A200854AC4 /* AVFoundation.framework */; };
 		0878A0EB1B4EDA7D00A8E657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878A0EA1B4EDA7D00A8E657 /* AppDelegate.swift */; };
 		0878A0ED1B4EDA7D00A8E657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878A0EC1B4EDA7D00A8E657 /* ViewController.swift */; };
 		0878A0F01B4EDA7D00A8E657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0878A0EE1B4EDA7D00A8E657 /* Main.storyboard */; };
 		0878A0F21B4EDA7D00A8E657 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0878A0F11B4EDA7D00A8E657 /* Images.xcassets */; };
 		0878A0F51B4EDA7D00A8E657 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0878A0F31B4EDA7D00A8E657 /* LaunchScreen.xib */; };
 		0878A1011B4EDA7D00A8E657 /* CoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878A1001B4EDA7D00A8E657 /* CoroTests.swift */; };
+		088008C11B4EDF310019FD83 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 088008C01B4EDF310019FD83 /* Podfile */; };
+		08B3E7021B503C2500C62ECA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */; };
+		B79D78880BD657F0765C8542 /* Pods_Coro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6974913F0C55EF04421F0C /* Pods_Coro.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0853219F1B4EE47B00854AC4 /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		085321A11B4EE4A200854AC4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		085321A31B4EE58200854AC4 /* Coro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Coro-Bridging-Header.h"; sourceTree = "<group>"; };
 		0878A0E51B4EDA7D00A8E657 /* Coro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0878A0E91B4EDA7D00A8E657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0878A0EA1B4EDA7D00A8E657 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +44,11 @@
 		0878A0FA1B4EDA7D00A8E657 /* CoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0878A0FF1B4EDA7D00A8E657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0878A1001B4EDA7D00A8E657 /* CoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoroTests.swift; sourceTree = "<group>"; };
+		088008C01B4EDF310019FD83 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9A6974913F0C55EF04421F0C /* Pods_Coro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE30275A01CF6ADC1DAAFF7F /* Pods-Coro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coro.debug.xcconfig"; path = "Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro.debug.xcconfig"; sourceTree = "<group>"; };
+		F7ACBA7E89D36542D3837A02 /* Pods-Coro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coro.release.xcconfig"; path = "Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08B3E7021B503C2500C62ECA /* SystemConfiguration.framework in Frameworks */,
+				085321A21B4EE4A200854AC4 /* AVFoundation.framework in Frameworks */,
+				B79D78880BD657F0765C8542 /* Pods_Coro.framework in Frameworks */,
+				085321A01B4EE47B00854AC4 /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +79,8 @@
 				0878A0E71B4EDA7D00A8E657 /* Coro */,
 				0878A0FD1B4EDA7D00A8E657 /* CoroTests */,
 				0878A0E61B4EDA7D00A8E657 /* Products */,
+				C3F2D242ACBDFA37D30F3D3F /* Pods */,
+				14082FFB3394DF66D3FCD5E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +96,15 @@
 		0878A0E71B4EDA7D00A8E657 /* Coro */ = {
 			isa = PBXGroup;
 			children = (
+				0853219F1B4EE47B00854AC4 /* Spotify.framework */,
 				0878A0EA1B4EDA7D00A8E657 /* AppDelegate.swift */,
 				0878A0EC1B4EDA7D00A8E657 /* ViewController.swift */,
 				0878A0EE1B4EDA7D00A8E657 /* Main.storyboard */,
 				0878A0F11B4EDA7D00A8E657 /* Images.xcassets */,
 				0878A0F31B4EDA7D00A8E657 /* LaunchScreen.xib */,
 				0878A0E81B4EDA7D00A8E657 /* Supporting Files */,
+				088008C01B4EDF310019FD83 /* Podfile */,
+				085321A31B4EE58200854AC4 /* Coro-Bridging-Header.h */,
 			);
 			path = Coro;
 			sourceTree = "<group>";
@@ -112,6 +134,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		14082FFB3394DF66D3FCD5E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */,
+				085321A11B4EE4A200854AC4 /* AVFoundation.framework */,
+				9A6974913F0C55EF04421F0C /* Pods_Coro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3F2D242ACBDFA37D30F3D3F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE30275A01CF6ADC1DAAFF7F /* Pods-Coro.debug.xcconfig */,
+				F7ACBA7E89D36542D3837A02 /* Pods-Coro.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +160,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0878A1041B4EDA7D00A8E657 /* Build configuration list for PBXNativeTarget "Coro" */;
 			buildPhases = (
+				BB9770A61C1E6907E770DFEB /* Check Pods Manifest.lock */,
 				0878A0E11B4EDA7D00A8E657 /* Sources */,
 				0878A0E21B4EDA7D00A8E657 /* Frameworks */,
 				0878A0E31B4EDA7D00A8E657 /* Resources */,
+				524329FF52685061B6573788 /* Embed Pods Frameworks */,
+				0891F06BBC38D8CBCF19857C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,6 +238,7 @@
 			files = (
 				0878A0F01B4EDA7D00A8E657 /* Main.storyboard in Resources */,
 				0878A0F51B4EDA7D00A8E657 /* LaunchScreen.xib in Resources */,
+				088008C11B4EDF310019FD83 /* Podfile in Resources */,
 				0878A0F21B4EDA7D00A8E657 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +251,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0891F06BBC38D8CBCF19857C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		524329FF52685061B6573788 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB9770A61C1E6907E770DFEB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0878A0E11B4EDA7D00A8E657 /* Sources */ = {
@@ -338,21 +431,36 @@
 		};
 		0878A1051B4EDA7D00A8E657 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE30275A01CF6ADC1DAAFF7F /* Pods-Coro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Coro",
+				);
 				INFOPLIST_FILE = Coro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Coro/Coro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		0878A1061B4EDA7D00A8E657 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7ACBA7E89D36542D3837A02 /* Pods-Coro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Coro",
+				);
 				INFOPLIST_FILE = Coro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Coro/Coro-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +517,7 @@
 				0878A1061B4EDA7D00A8E657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0878A1071B4EDA7D00A8E657 /* Build configuration list for PBXNativeTarget "CoroTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +526,7 @@
 				0878A1091B4EDA7D00A8E657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

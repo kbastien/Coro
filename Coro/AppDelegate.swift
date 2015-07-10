@@ -11,12 +11,52 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let kClientID = "24f5052d223b45068950c8ffecac1f45"
+    let kCallbackURL = "coro://returnafterlogin"
+    let kTokenSwapURL = "http://coro.herokuapp.com/swap"
+    let kTokenRefreshServiceURL = "http://coro.herokuapp.com/refresh"
+    
     var window: UIWindow?
 
+    var session: SPTSession?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        SPTAuth.defaultInstance().clientID = kClientID
+        SPTAuth.defaultInstance().redirectURL = NSURL(string: kCallbackURL)
+        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
+        
+        let loginURL = SPTAuth.defaultInstance().loginURL
+        
+        
+        
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        if SPTAuth.defaultInstance().canHandleURL(url) {
+            SPTAuth.defaultInstance().handleAuthCallbackWithTriggeredAuthURL(url, callback: {(error:NSError!, session: SPTSession!) -> Void in
+                
+                if error != nil {
+                    println("AUTH ERROR \(error)");
+                    return;
+                }
+                
+                println("authentication successful!! 😎")
+
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
+                userDefaults.setObject(sessionData, forKey: "SpotifySession")
+                userDefaults.synchronize()
+            
+            })
+            return true
+        }
+        
+        return false
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
