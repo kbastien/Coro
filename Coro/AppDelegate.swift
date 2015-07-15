@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let kCallbackURL = "coro://returnafterlogin"
     let kTokenSwapURL = "http://coro.herokuapp.com/swap"
     let kTokenRefreshServiceURL = "http://coro.herokuapp.com/refresh"
+    let UserDefaultsKey = "sessionSpotify"
     
     var window: UIWindow?
 
@@ -22,41 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-
-        SPTAuth.defaultInstance().clientID = kClientID
-        SPTAuth.defaultInstance().redirectURL = NSURL(string: kCallbackURL)
-        SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
         
-        let loginURL = SPTAuth.defaultInstance().loginURL
-        
-        
-        
+        let auth = SPTAuth.defaultInstance()
+        auth.clientID = kClientID
+        auth.redirectURL = NSURL(string: kCallbackURL)
+        auth.requestedScopes = [SPTAuthStreamingScope]
+        auth.sessionUserDefaultsKey = UserDefaultsKey
         return true
-    }
-    
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        
-        if SPTAuth.defaultInstance().canHandleURL(url) {
-            SPTAuth.defaultInstance().handleAuthCallbackWithTriggeredAuthURL(url, callback: {(error:NSError!, session: SPTSession!) -> Void in
-                
-                if error != nil {
-                    println("AUTH ERROR \(error)");
-                    return;
-                }
-                
-                println("authentication successful!! 😎")
-
-                let userDefaults = NSUserDefaults.standardUserDefaults()
-                let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
-                userDefaults.setObject(sessionData, forKey: "SpotifySession")
-                userDefaults.synchronize()
-            
-            })
-            return true
-        }
-        
-        return false
-
     }
 
     func applicationWillResignActive(application: UIApplication) {

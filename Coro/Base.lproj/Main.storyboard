@@ -27,14 +27,8 @@
                                 </state>
                                 <connections>
                                     <action selector="loginWithSpotify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hor-1P-7Qy"/>
+                                    <segue destination="Z1Y-8z-ngE" kind="custom" identifier="LoginReceived" customClass="NoAnimationSegue" customModule="Coro" customModuleProvider="target" id="Mrf-ny-PbE"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuZ-cF-91X">
-                                <rect key="frame" x="73" y="186" width="174" height="30"/>
-                                <state key="normal" title="LOG OUT">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -44,16 +38,13 @@
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Bng-6b-B4U"/>
                             <constraint firstItem="ZP1-SA-ITQ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Eij-dc-xHR"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="GpD-sS-RPq"/>
-                            <constraint firstItem="SuZ-cF-91X" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="57" id="PF5-4Z-UMi"/>
                             <constraint firstItem="ZP1-SA-ITQ" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Rj9-3R-wRP"/>
                             <constraint firstItem="ZP1-SA-ITQ" firstAttribute="centerX" secondItem="xd0-cL-vlY" secondAttribute="centerX" id="VEK-Wt-tnh"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="6" id="VeS-sy-h6S"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="239" id="a0s-v9-eFb"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="13" id="hT1-pW-7bk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SuZ-cF-91X" secondAttribute="trailing" constant="57" id="haQ-ti-6S9"/>
                             <constraint firstAttribute="centerY" secondItem="xd0-cL-vlY" secondAttribute="centerY" constant="0.5" id="puO-vo-ZmW"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qF4-9H-HGw"/>
-                            <constraint firstItem="SuZ-cF-91X" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="166" id="qgG-MD-KzX"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xd0-cL-vlY" secondAttribute="bottom" constant="261" id="wXt-w9-Ilj"/>
                             <constraint firstAttribute="centerX" secondItem="xd0-cL-vlY" secondAttribute="centerX" id="y6y-fw-qzt"/>
                         </constraints>
@@ -95,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="982" y="670"/>
         </scene>
-        <!--View Controller-->
+        <!--Pick Playlist View Controller-->
         <scene sceneID="s9T-56-5M6">
             <objects>
-                <viewController id="Z1Y-8z-ngE" sceneMemberID="viewController">
+                <viewController id="Z1Y-8z-ngE" customClass="PickPlaylistViewController" customModule="Coro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N5p-nA-pnk"/>
                         <viewControllerLayoutGuide type="bottom" id="P2K-8N-wfW"/>
@@ -106,7 +97,19 @@
                     <view key="view" contentMode="scaleToFill" id="wed-Ht-57J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGGED IN!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFk-4n-NnX">
+                                <rect key="frame" x="111" y="273" width="98" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="hFk-4n-NnX" secondAttribute="centerY" constant="0.5" id="xTR-RQ-Ney"/>
+                            <constraint firstAttribute="centerX" secondItem="hFk-4n-NnX" secondAttribute="centerX" id="zvr-P2-THG"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>

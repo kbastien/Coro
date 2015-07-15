@@ -17,6 +17,8 @@
 		0878A1011B4EDA7D00A8E657 /* CoroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0878A1001B4EDA7D00A8E657 /* CoroTests.swift */; };
 		088008C11B4EDF310019FD83 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 088008C01B4EDF310019FD83 /* Podfile */; };
 		08B3E7021B503C2500C62ECA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */; };
+		08B3E7041B508ADE00C62ECA /* NoAnimationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3E7031B508ADE00C62ECA /* NoAnimationSegue.swift */; };
+		08BD643C1B57163300C42A92 /* PickPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BD643B1B57163300C42A92 /* PickPlaylistViewController.swift */; };
 		B79D78880BD657F0765C8542 /* Pods_Coro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6974913F0C55EF04421F0C /* Pods_Coro.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -44,8 +46,10 @@
 		0878A0FA1B4EDA7D00A8E657 /* CoroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0878A0FF1B4EDA7D00A8E657 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0878A1001B4EDA7D00A8E657 /* CoroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoroTests.swift; sourceTree = "<group>"; };
-		088008C01B4EDF310019FD83 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		088008C01B4EDF310019FD83 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		08B3E7031B508ADE00C62ECA /* NoAnimationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoAnimationSegue.swift; sourceTree = "<group>"; };
+		08BD643B1B57163300C42A92 /* PickPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickPlaylistViewController.swift; sourceTree = "<group>"; };
 		9A6974913F0C55EF04421F0C /* Pods_Coro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE30275A01CF6ADC1DAAFF7F /* Pods-Coro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coro.debug.xcconfig"; path = "Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro.debug.xcconfig"; sourceTree = "<group>"; };
 		F7ACBA7E89D36542D3837A02 /* Pods-Coro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coro.release.xcconfig"; path = "Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,12 +103,14 @@
 				0853219F1B4EE47B00854AC4 /* Spotify.framework */,
 				0878A0EA1B4EDA7D00A8E657 /* AppDelegate.swift */,
 				0878A0EC1B4EDA7D00A8E657 /* ViewController.swift */,
+				08BD643B1B57163300C42A92 /* PickPlaylistViewController.swift */,
 				0878A0EE1B4EDA7D00A8E657 /* Main.storyboard */,
 				0878A0F11B4EDA7D00A8E657 /* Images.xcassets */,
 				0878A0F31B4EDA7D00A8E657 /* LaunchScreen.xib */,
 				0878A0E81B4EDA7D00A8E657 /* Supporting Files */,
 				088008C01B4EDF310019FD83 /* Podfile */,
 				085321A31B4EE58200854AC4 /* Coro-Bridging-Header.h */,
+				08B3E7031B508ADE00C62ECA /* NoAnimationSegue.swift */,
 			);
 			path = Coro;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0878A0ED1B4EDA7D00A8E657 /* ViewController.swift in Sources */,
+				08B3E7041B508ADE00C62ECA /* NoAnimationSegue.swift in Sources */,
+				08BD643C1B57163300C42A92 /* PickPlaylistViewController.swift in Sources */,
 				0878A0EB1B4EDA7D00A8E657 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
