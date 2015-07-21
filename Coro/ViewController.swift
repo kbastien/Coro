@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     let kTokenRefreshServiceURL = "http://coro.herokuapp.com/refresh"
     let UserDefaultsKey = "sessionSpotify"
     var session : SPTSession!
+    let auth = SPTAuth.defaultInstance()
 
     @IBOutlet weak var loginButton: UIButton!
     
@@ -43,8 +44,6 @@ class ViewController: UIViewController {
     
     //Log in functions
     //###########################################################
-
-
     @IBAction func loginWithSpotify(sender: AnyObject) {
         openLogin()
     }
@@ -60,12 +59,10 @@ class ViewController: UIViewController {
     
     func loginReceived () {
         
-        let auth = SPTAuth.defaultInstance()
-        
         if let session = auth.session {
             if !session.isValid() {
                 SPTAuth.defaultInstance().renewSession(session, callback: { (error: NSError!, session: SPTSession!) -> Void in
-                    auth.session = session
+                    self.auth.session = session
                     if error != nil {
                         println("Error refreshing session: \(error)")
                     }
@@ -77,9 +74,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    //###########################################################
-    
     
     //SPTAuthViewDelegate
     //###########################################################
@@ -101,7 +95,6 @@ class ViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //any pre-segue stuff goes in here
         if let navigation = segue.destinationViewController as? UINavigationController {
             if let pc = navigation.viewControllers.first as? PickPlaylistViewController {
                 if (sender as! SPTSession).isValid() {
@@ -112,5 +105,53 @@ class ViewController: UIViewController {
         
     }
 
+    //Get users playlist info
+    func userPlaylist() -> [String]? {
+        var checkError:NSErrorPointer
+        var library:[String]?
+        
+        SPTYourMusic.savedTracksForUserWithAccessToken(auth.session.accessToken, callback: { (error, result) -> Void in
+            if error != nil {
+                print("Error while getting user's saved tracks: \(error)")
+                return
+            }
+            if let resultObj = result as? [String] {
+                println("\(resultObj)");
+            } else {
+                print("No Tracks")
+                print("\(result)")
+            }
+        })
+        return library
+    }
+    
+    /*
+    this methods purpose is to retrieve the user's data and print out users info
+    */
+    func userData() {
+        let userReq = SPTUser.createRequestForCurrentUserWithAccessToken(SPTAuth.defaultInstance().session.accessToken, error: nil)
+        SPTRequest.sharedHandler().performRequest(userReq, callback: { (error: NSError!, response: NSURLResponse!, data: NSData!) -> Void in
+            if error != nil {
+                print("Retrieving user data was unsuccessful: \(error)")
+                return
+            }
+            let user = SPTUser(fromData: data, withResponse: response, error: nil)
+            let username = user.displayName
+            NSLog("User's name: \(username)")
+            let canonicalUserName = user.canonicalUserName
+            NSLog("User's canonical name: \(canonicalUserName)")
+            let territory = user.territory
+            NSLog("User's Territory: \(territory)")
+            let email = user.emailAddress
+            NSLog("User's email: \(email)")
+            let uri = user.uri
+            NSLog("URI: \(uri)")
+            let sharingURL = user.sharingURL
+            NSLog("Share URL: \(sharingURL)")
+            let followers = user.followerCount
+            NSLog("Number of followers: \(followers)")
+        })
+    }
+    
 }
 

@@ -12,15 +12,17 @@ import UIKit
 class PickPlaylistViewController: UIViewController {
     
     var session:SPTSession!
+    var playlist = ViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playlist.userPlaylist()
+        playlist.userData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
 }
