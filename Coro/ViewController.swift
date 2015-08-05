@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     let UserDefaultsKey = "sessionSpotify"
     var session : SPTSession!
     let auth = SPTAuth.defaultInstance()
+    
 
     @IBOutlet weak var loginButton: UIButton!
     
@@ -98,7 +99,7 @@ class ViewController: UIViewController {
         if let navigation = segue.destinationViewController as? UINavigationController {
             if let pc = navigation.viewControllers.first as? PickPlaylistViewController {
                 if (sender as! SPTSession).isValid() {
-                    pc.session = (sender as! SPTSession)
+                    pc.session = self.auth.session
                 }
             }
         }
@@ -119,7 +120,6 @@ class ViewController: UIViewController {
                 println("\(resultObj)");
             } else {
                 print("No Tracks")
-                print("\(result)")
             }
         })
         return library

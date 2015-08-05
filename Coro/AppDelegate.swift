@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let auth = SPTAuth.defaultInstance()
         auth.clientID = kClientID
         auth.redirectURL = NSURL(string: kCallbackURL)
-        auth.requestedScopes = [SPTAuthStreamingScope]
+        auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope,SPTAuthPlaylistModifyPrivateScope,SPTAuthUserFollowModifyScope, SPTAuthUserFollowReadScope,SPTAuthUserLibraryModifyScope,SPTAuthUserLibraryReadScope,SPTAuthUserReadBirthDateScope,SPTAuthUserReadEmailScope,SPTAuthUserReadPrivateScope]
         auth.sessionUserDefaultsKey = UserDefaultsKey
         return true
     }
