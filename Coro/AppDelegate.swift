@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let kClientID = "24f5052d223b45068950c8ffecac1f45"
+    let gimbalKey = "601000c8-1b45-49aa-91b4-149fced21e77"
     let kCallbackURL = "coro://returnafterlogin"
     let kTokenSwapURL = "http://coro.herokuapp.com/swap"
     let kTokenRefreshServiceURL = "http://coro.herokuapp.com/refresh"
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Gimbal.setAPIKey(gimbalKey, options: nil)
         
         let auth = SPTAuth.defaultInstance()
         auth.clientID = kClientID

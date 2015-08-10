@@ -19,6 +19,8 @@
 		08B3E7021B503C2500C62ECA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */; };
 		08B3E7041B508ADE00C62ECA /* NoAnimationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3E7031B508ADE00C62ECA /* NoAnimationSegue.swift */; };
 		08BD643C1B57163300C42A92 /* PickPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BD643B1B57163300C42A92 /* PickPlaylistViewController.swift */; };
+		08D79FA91B7922DF00EF4602 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D79FA81B7922DF00EF4602 /* libz.dylib */; };
+		08D79FAD1B79232200EF4602 /* Gimbal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D79FAC1B79232200EF4602 /* Gimbal.framework */; };
 		B79D78880BD657F0765C8542 /* Pods_Coro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6974913F0C55EF04421F0C /* Pods_Coro.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		08B3E7031B508ADE00C62ECA /* NoAnimationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoAnimationSegue.swift; sourceTree = "<group>"; };
 		08BD643B1B57163300C42A92 /* PickPlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickPlaylistViewController.swift; sourceTree = "<group>"; };
+		08D79FA81B7922DF00EF4602 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		08D79FAC1B79232200EF4602 /* Gimbal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gimbal.framework; sourceTree = "<group>"; };
 		9A6974913F0C55EF04421F0C /* Pods_Coro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE30275A01CF6ADC1DAAFF7F /* Pods-Coro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coro.debug.xcconfig"; path = "Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro.debug.xcconfig"; sourceTree = "<group>"; };
 		F7ACBA7E89D36542D3837A02 /* Pods-Coro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coro.release.xcconfig"; path = "Coro/Pods/Target Support Files/Pods-Coro/Pods-Coro.release.xcconfig"; sourceTree = "<group>"; };
@@ -60,7 +64,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08D79FA91B7922DF00EF4602 /* libz.dylib in Frameworks */,
 				08B3E7021B503C2500C62ECA /* SystemConfiguration.framework in Frameworks */,
+				08D79FAD1B79232200EF4602 /* Gimbal.framework in Frameworks */,
 				085321A21B4EE4A200854AC4 /* AVFoundation.framework in Frameworks */,
 				B79D78880BD657F0765C8542 /* Pods_Coro.framework in Frameworks */,
 				085321A01B4EE47B00854AC4 /* Spotify.framework in Frameworks */,
@@ -100,6 +106,7 @@
 		0878A0E71B4EDA7D00A8E657 /* Coro */ = {
 			isa = PBXGroup;
 			children = (
+				08D79FAC1B79232200EF4602 /* Gimbal.framework */,
 				0853219F1B4EE47B00854AC4 /* Spotify.framework */,
 				0878A0EA1B4EDA7D00A8E657 /* AppDelegate.swift */,
 				0878A0EC1B4EDA7D00A8E657 /* ViewController.swift */,
@@ -143,6 +150,7 @@
 		14082FFB3394DF66D3FCD5E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08D79FA81B7922DF00EF4602 /* libz.dylib */,
 				08B3E7011B503C2500C62ECA /* SystemConfiguration.framework */,
 				085321A11B4EE4A200854AC4 /* AVFoundation.framework */,
 				9A6974913F0C55EF04421F0C /* Pods_Coro.framework */,
@@ -206,6 +214,7 @@
 		0878A0DD1B4EDA7D00A8E657 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Kevin Bastien";
 				TargetAttributes = {
@@ -446,6 +455,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Coro",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Coro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -464,6 +474,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Coro",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Coro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

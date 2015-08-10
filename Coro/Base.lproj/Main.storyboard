@@ -17,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ZP1-SA-ITQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd0-cL-vlY">
                                 <rect key="frame" x="29" y="260" width="263" height="47"/>
                                 <state key="normal" image="loginButton">
@@ -30,19 +27,24 @@
                                     <segue destination="Z1Y-8z-ngE" kind="custom" identifier="LoginReceived" customClass="NoAnimationSegue" customModule="Coro" customModuleProvider="target" id="Mrf-ny-PbE"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to Spotify to get started!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2G-Qb-wg8">
+                                <rect key="frame" x="56" y="493" width="209" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="240" id="2Aj-s1-K6y"/>
-                            <constraint firstItem="ZP1-SA-ITQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="BkT-Sy-XLX"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Bng-6b-B4U"/>
-                            <constraint firstItem="ZP1-SA-ITQ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Eij-dc-xHR"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="GpD-sS-RPq"/>
-                            <constraint firstItem="ZP1-SA-ITQ" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Rj9-3R-wRP"/>
-                            <constraint firstItem="ZP1-SA-ITQ" firstAttribute="centerX" secondItem="xd0-cL-vlY" secondAttribute="centerX" id="VEK-Wt-tnh"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="6" id="VeS-sy-h6S"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="239" id="a0s-v9-eFb"/>
+                            <constraint firstItem="d2G-Qb-wg8" firstAttribute="top" secondItem="xd0-cL-vlY" secondAttribute="bottom" constant="26" id="cel-QN-zl4"/>
+                            <constraint firstAttribute="centerY" secondItem="d2G-Qb-wg8" secondAttribute="centerY" constant="-217.5" id="fD5-p8-knS"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="13" id="hT1-pW-7bk"/>
+                            <constraint firstAttribute="centerX" secondItem="d2G-Qb-wg8" secondAttribute="centerX" id="iXF-RV-uqm"/>
                             <constraint firstAttribute="centerY" secondItem="xd0-cL-vlY" secondAttribute="centerY" constant="0.5" id="puO-vo-ZmW"/>
                             <constraint firstItem="xd0-cL-vlY" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="qF4-9H-HGw"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xd0-cL-vlY" secondAttribute="bottom" constant="261" id="wXt-w9-Ilj"/>
@@ -56,6 +58,7 @@
                                 <exclude reference="a0s-v9-eFb"/>
                                 <exclude reference="puO-vo-ZmW"/>
                                 <exclude reference="y6y-fw-qzt"/>
+                                <exclude reference="cel-QN-zl4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -155,7 +158,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="750" height="1334"/>
         <image name="loginButton" width="488" height="88"/>
     </resources>
 </document>

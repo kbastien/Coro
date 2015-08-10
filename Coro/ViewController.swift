@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class ViewController: UIViewController {
     
@@ -17,7 +18,6 @@ class ViewController: UIViewController {
     let UserDefaultsKey = "sessionSpotify"
     var session : SPTSession!
     let auth = SPTAuth.defaultInstance()
-    
 
     @IBOutlet weak var loginButton: UIButton!
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             if userSession.isValid() {
                 loginReceived()
             }
-            
+
         }
     }
     

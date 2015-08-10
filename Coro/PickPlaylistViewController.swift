@@ -10,17 +10,30 @@ import Foundation
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
-class PickPlaylistViewController: UIViewController {
+class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
     
     var session:SPTSession!
     var playlist = ViewController()
-    @IBOutlet weak var addSongBtn: UIButton!
+    
+    //location variables
+    let locationManager = CLLocationManager()
+    let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D"), identifier: "Coro iBeacon")
+    let greenLight = UIColor(red: 0, green: 1, blue: 0, alpha: 1)
+    let redLight = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         playlist.userPlaylist()
         playlist.userData()
+        
+        locationManager.delegate = self
+        
+        if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        locationManager.startRangingBeaconsInRegion(region)
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +67,22 @@ class PickPlaylistViewController: UIViewController {
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         postTrack()
+    }
+    
+    //user location and beacon methods
+    func locationManager(manager: CLLocationManager!, didRangeBeacons beacons: [AnyObject]!, inRegion region: CLBeaconRegion!) {
+        //filtering out all unknown beacons
+        let knownBeacons = beacons.filter{ $0.proximity != CLProximity.Unknown }
+        if (knownBeacons.count > 0) {
+            let closestBeacon = knownBeacons[0] as! CLBeacon
+            if(closestBeacon.proximity.rawValue == 1){
+                self.view.backgroundColor = greenLight
+            }
+            else {
+                self.view.backgroundColor = redLight
+            }
+        }
+        println(knownBeacons)
     }
     
 }
