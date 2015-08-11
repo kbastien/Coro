@@ -44,7 +44,6 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
     func postTrack(){
         let postsEndpoint = "https://api.spotify.com/v1/users/1210394933/playlists/0hQrE9qqgB2AiRPZmDG8Uk/tracks?uris=spotify:track:6wf85LERx5my0RsMh6tSkT&scope=playlist-modify-public&playlist-modify-private"
         let headers = ["Content-Type": "application/json", "Authorization": "Bearer \(playlist.auth.session.accessToken)"]
-        let scopes = "playlist-modify-public%20playlist-modify-private"
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
         Alamofire.request(.POST, postsEndpoint, parameters: nil , encoding: .JSON)
             .responseJSON { (request, response, data, error) in
@@ -65,8 +64,27 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
             
     }
     
-    @IBAction func addButtonPressed(sender: AnyObject) {
-        postTrack()
+    func deleteTrack(){
+        let deleteEndpoint = "https://api.spotify.com/v1/users/1210394933/playlists/0hQrE9qqgB2AiRPZmDG8Uk/tracks"
+        let headers = ["Content-Type": "application/json", "Accept": "application/json", "Authorization": "Bearer \(playlist.auth.session.accessToken)"]
+        var params = ["tracks": [["uri": "spotify:track:6wf85LERx5my0RsMh6tSkT"]]]
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
+        Alamofire.request(.DELETE, deleteEndpoint, parameters: params , encoding: .JSON)
+            .responseJSON { (request, response, data, error) in
+                if let anError = error
+                {
+                    // got an error in getting the data, need to handle it
+                    println("error calling DELETE on /posts")
+                    println(error)
+                }
+                else if let data: AnyObject = data
+                {
+                    // handle the results as JSON
+                    let delete = JSON(data)
+                    // to make sure it posted, print the results
+                    println("The post is: " + delete.description)
+                }
+        }
     }
     
     //user location and beacon methods
@@ -77,9 +95,19 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
             let closestBeacon = knownBeacons[0] as! CLBeacon
             if(closestBeacon.proximity.rawValue == 1){
                 self.view.backgroundColor = greenLight
+                var postCount = 1;
+                if(postCount < 2){
+                    postTrack()
+                    postCount += 1
+                }
             }
             else {
                 self.view.backgroundColor = redLight
+                var deleteCount = 1;
+                if(deleteCount < 2){
+                    deleteTrack()
+                    deleteCount += 1
+                }
             }
         }
         println(knownBeacons)

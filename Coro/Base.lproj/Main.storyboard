@@ -100,38 +100,9 @@
                     <view key="view" contentMode="scaleToFill" id="wed-Ht-57J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGGED IN!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFk-4n-NnX">
-                                <rect key="frame" x="111" y="20" width="98" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WB-c4-WUz">
-                                <rect key="frame" x="77" y="269" width="167" height="30"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Add Song Doood">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addButtonPressed:" destination="Z1Y-8z-ngE" eventType="touchUpInside" id="VPQ-pm-ivJ"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="8WB-c4-WUz" firstAttribute="centerY" secondItem="wed-Ht-57J" secondAttribute="centerY" id="Cdp-rp-rDh"/>
-                            <constraint firstItem="8WB-c4-WUz" firstAttribute="leading" secondItem="wed-Ht-57J" secondAttribute="leadingMargin" constant="61" id="SEZ-fA-x1k"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8WB-c4-WUz" secondAttribute="trailing" constant="60" id="djN-lA-rco"/>
-                            <constraint firstAttribute="centerY" secondItem="hFk-4n-NnX" secondAttribute="centerY" constant="253.5" id="xTR-RQ-Ney"/>
-                            <constraint firstAttribute="centerX" secondItem="hFk-4n-NnX" secondAttribute="centerX" id="zvr-P2-THG"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="addSongBtn" destination="8WB-c4-WUz" id="JDp-Nb-WgZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQt-dD-etM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
