@@ -17,6 +17,7 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
     var session:SPTSession!
     var playlist = ViewController()
     var playlistArray = [String]()
+    var playlistIDs = [String]()
     var deleteArray = [String]()
     var hasDoneRequestAlready = true
     
@@ -31,7 +32,8 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         playlist.userPlaylist()
         playlist.userData()
-        getPlaylistTracks()
+        
+        getPlaylist()
         
         locationManager.delegate = self
         
@@ -45,9 +47,35 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func getPlaylist() {
+        let endpoint = "https://api.spotify.com/v1/users/" + playlist.auth.session.canonicalUsername + "/playlists"
+        let headers = ["Content-Type": "application/json", "Authorization": "Bearer \(playlist.auth.session.accessToken)"]
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
+        Alamofire.request(.GET, endpoint, parameters: nil , encoding: .JSON)
+            .responseJSON { (request, response, data, error) in
+                if let anError = error
+                {
+                    // got an error in getting the data, need to handle it
+                    println("error calling DELETE on /posts")
+                    println(error)
+                }
+                else if let data: AnyObject = data
+                {
+                    // handle the results as JSON
+                    let getPlaylistData = JSON(data)
+                    // to make sure it posted, print the results
+                    for (key, value) in getPlaylistData["items"] {
+                        self.playlistIDs.append(value["id"].string!)
+                    }
+                    println("PLAYLISTS \(self.playlistIDs)")
+                    self.getPlaylistTracks()
+                }
+        }
+    }
+
     func getPlaylistTracks(){
-        let endpoint = "https://api.spotify.com/v1/users/1210394933/playlists/3wBJQcbsrdJB1cgctsVJxS/tracks"
+        let endpoint = "https://api.spotify.com/v1/users/" + playlist.auth.session.canonicalUsername + "/playlists/" + playlistIDs[0] + "/tracks"
         let headers = ["Content-Type": "application/json", "Authorization": "Bearer \(playlist.auth.session.accessToken)"]
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
         Alamofire.request(.GET, endpoint, parameters: nil , encoding: .JSON)
@@ -73,7 +101,7 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func postTrack(){
-        let postsEndpoint = "https://api.spotify.com/v1/users/1210394933/playlists/0hQrE9qqgB2AiRPZmDG8Uk/tracks"
+        let postsEndpoint = "https://api.spotify.com/v1/users/" + playlist.auth.session.canonicalUsername + "/playlists/0hQrE9qqgB2AiRPZmDG8Uk/tracks"
         let headers = ["Content-Type": "application/json", "Authorization": "Bearer \(playlist.auth.session.accessToken)"]
         let params = ["uris": playlistArray]
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
@@ -97,14 +125,12 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func deleteTrack(){
-        let deleteEndpoint = "https://api.spotify.com/v1/users/1210394933/playlists/0hQrE9qqgB2AiRPZmDG8Uk/tracks"
+        let deleteEndpoint = "https://api.spotify.com/v1/users/" + playlist.auth.session.canonicalUsername + "/playlists/0hQrE9qqgB2AiRPZmDG8Uk/tracks"
         let headers = ["Content-Type": "application/json", "Accept": "application/json", "Authorization": "Bearer \(playlist.auth.session.accessToken)"]
         
         var params = ["tracks": playlistArray.map({
             ["uri": "\($0)"]
         })]
-        
-        println("THIS IS THE DELETE PARAMS: \(params)")
         
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = headers
         Alamofire.request(.DELETE, deleteEndpoint, parameters: params , encoding: .JSON)
@@ -120,7 +146,7 @@ class PickPlaylistViewController: UIViewController, CLLocationManagerDelegate {
                     // handle the results as JSON
                     let delete = JSON(data)
                     // to make sure it posted, print the results
-                    println("The delete is: " + delete.description)
+//                    println("The delete is: " + delete.description)
                 }
         }
     }

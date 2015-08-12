@@ -105,7 +105,7 @@ class ViewController: UIViewController {
         }
         
     }
-
+    
     //Get users playlist info
     func userPlaylist() -> [String]? {
         var checkError:NSErrorPointer
